@@ -25,13 +25,17 @@ export const QrCodeGenerator = () => {
     return (
         <div className={s.container}>
 
-            <input
-                placeholder="Enter your text..."
-                type="text"
-                value={value}
-                onChange={onChangeHandler}
-                className={s.input}
-            />
+                        <div className={s.inputWrapper}>
+                <span className={s.hiddenText}>{value || "Enter your text..."}</span>
+                <input
+                    placeholder="Enter your text..."
+                    type="text"
+                    value={value}
+                    onChange={onChangeHandler}
+                    className={s.input}
+                />
+            </div>
+
             <button
                 className={s.button}
                 type="button"
@@ -41,6 +45,7 @@ export const QrCodeGenerator = () => {
             </button>
             {result !== '' && (
                 <div className={s.qr_container}>
+                    <p className={s.p}>{result}</p>
                     <QRCodeSVG value={result} size={200}/>
                 </div>
             )}
