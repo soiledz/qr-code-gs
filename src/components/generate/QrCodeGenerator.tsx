@@ -1,5 +1,5 @@
 import {QRCodeSVG} from 'qrcode.react';
-import {useState} from "react";
+import {useState, ChangeEvent} from "react";
 import s from "./QrCodeGenerator.module.css"
 import {GENERATE_DATA} from "../../constants.tsx";
 
@@ -17,7 +17,7 @@ export const QrCodeGenerator = () => {
         setValue('')
     }
 
-    const onChangeHandler = (event: any) => {
+    const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
         setResult('')
     }
